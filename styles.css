@@ -57,20 +57,42 @@ body {
 }
 
 .card.flip {
-    transform: rotateY(180deg);
-  }
-  
-  .cardfront {
-      transform: rotateY(180deg);
-      font-family:    Ink Free, Arial, Helvetica, sans-serif;
-      font-size:      40px;
-      font-weight:    bold;
-      color: rgb(58, 58, 58);
-      font-size: 36px;
-      text-align: center; 
-      /* vertical-align: middle; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  }
+  transform: rotateY(180deg);
+}
 
+.cardfront {
+  transform: rotateY(180deg);
+  font-family:    Ink Free, Arial, Helvetica, sans-serif;
+  font-size:      40px;
+  font-weight:    bold;
+  color: rgb(58, 58, 58);
+  font-size: 36px;
+  text-align: center; 
+  /* vertical-align: middle; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameInfo {
+  font-family:    Ink Free, Arial, Helvetica, sans-serif;
+  font-size:      40px;
+  text-align: center;
+  
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  
+}
+.subhead {
+  font-family:    Ink Free, Arial, Helvetica, sans-serif;
+  font-size:      16px;
+  text-align: center;
+  
+}
+
+.revealed {
+  background: #b0dee0;
+}

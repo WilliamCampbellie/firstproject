@@ -10,6 +10,83 @@
     <!-- <h1>Vocabulary Memory Game
 
     </h1> -->
+    <div class="sections">
+    <section class="gameInfo"> <h2>Match and Learn</h2>
+        <p class="subhead">Select a language you know, and one you are learning to expand your vocabulary.</p>
+    <div id="score"></div>
+Choose two languages
+    <select name="Language1">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="ga">Gaeilge</option>
+        <option value="de">Deutsch</option>
+        <option value="ru">русский язык</option>
+        <option value="uk">Українська мова</option>
+        <option value="fr">Français</option>
+        <option value="pl">Język polski</option>
+        <option value="tk">Türk</option>
+        <option value="pt">Português</option>
+        <option value="ca">Català</option>
+    </select>
+
+    <select name="Language2">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="ga">Gaeilge</option>
+        <option value="de">Deutsch</option>
+        <option value="ru">русский язык</option>
+        <option value="uk">Українська мова</option>
+        <option value="fr">Français</option>
+        <option value="pl">Język polski</option>
+        <option value="tk">Türk</option>
+        <option value="pt">Português</option>
+        <option value="ca">Català</option>
+    </select>
+
+    <input id="clickMe" type="button" value="Start Game" onclick="startButton();" />
+<!--   
+
+    <form method="post">
+        <select id="dropdown" name="dropdown1" onchange="changeHiddenInput(this)">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="ga">Gaeilge</option>
+            <option value="de">Deutsch</option>
+            <option value="ru">русский язык</option>
+            <option value="uk">Українська мова</option>
+            <option value="fr">Français</option>
+            <option value="pl">Język polski</option>
+            <option value="tk">Türk</option>
+            <option value="pt">Português</option>
+            <option value="ca">Català</option>
+        </select>
+    
+        <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
+    
+        <button onclick="changeHiddenInput (objDropDown)">Set Language 1</button>
+
+        <select id="dropdown" name="dropdown2" onchange="changeHiddenInput(this)">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="ga">Gaeilge</option>
+            <option value="de">Deutsch</option>
+            <option value="ru">русский язык</option>
+            <option value="uk">Українська мова</option>
+            <option value="fr">Français</option>
+            <option value="pl">Język polski</option>
+            <option value="tk">Türk</option>
+            <option value="pt">Português</option>
+            <option value="ca">Català</option>
+        </select>
+    
+        <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
+    
+        <button onclick="changeHiddenInput (objDropDown)">Set Languages 2</button>
+    </form>
+   -->
+    <div id="result"> </div>
+
+</section>
     <section class="language-game">
     
         <div class="card" id="0"><img id="0" onClick="reply_click(this.id)" class="cardback" src="images/CardBack.jpg"><div id="0" onClick="reply_click(this.id)" class="cardfront card0"> text here </div></div>
@@ -32,7 +109,7 @@
         <div class="card" id="17"><img id="17" onClick="reply_click(this.id)" class="cardback" src="images/CardBack.jpg"><div id="17" onClick="reply_click(this.id)" class="cardfront card17"> text here </div></div>
         <div class="card" id="18"><img id="18" onClick="reply_click(this.id)" class="cardback" src="images/CardBack.jpg"><div id="18" onClick="reply_click(this.id)" class="cardfront card18"> text here </div></div>
         <div class="card" id="19"><img id="19" onClick="reply_click(this.id)" class="cardback" src="images/CardBack.jpg"><div id="19" onClick="reply_click(this.id)" class="cardfront card19"> text here </div></div>
- </section>
+ </section></div>
     <script src="datafile.js"></script>
     <script src="scripts.js"></script>
 </body>

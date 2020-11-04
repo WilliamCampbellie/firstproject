@@ -152,6 +152,4 @@ cardArray = [ {id: 'card1', en: 'and', es: 'y', ga: 'agus', de: 'und', ru: 'а �
 {id: 'card152', en: 'business', es: 'negocio', ga: 'gnó', de: 'unternehmen', ru: 'бизнес', uk: 'бізнес', fr: 'entreprise', pl: 'biznes', tk: 'iş', pt: 'o negócio', ca: 'negocis' },
 {id: 'card153', en: 'side', es: 'lado', ga: 'taobh', de: 'seite', ru: 'боковая сторона', uk: 'сторона', fr: 'côté', pl: 'bok', tk: 'tarapy', pt: 'lado', ca: 'costat' },]
 
-const TFList = [true,false,true,false,true,false,true,false,true,false]
-
-oneToTwenty = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+oneToTwenty = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] 

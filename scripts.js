@@ -1,33 +1,51 @@
-let goAhead = true;
+let restart = false;
+let goAhead = false;
+let ding = new Audio('images/ding.mp3');
+let youWin = new Audio('images/YouWin.mp3');
 let pause = 3000
 let noteFirstCard = null;
 let noteSecondCard = null;
 const revealedCards = [];
 let score = 50;
 let firstOfPair = true;
-// let card1OfPair = null;
-// let card2OfPair = null;
-var language1 = 'de';
-var language2 = 'en';
-
+let language1; 
+let language2 ;
+let deck
 const cards = document.querySelectorAll('.card');
 let justClickedCard = ""
-function startButton(){
-var  language1 = document.getElementsByName("Language1")[0].value;
-var  language2 = document.getElementsByName("Language2")[0].value;
-document.getElementById("clickMe").value="Restart Game";
-  console.log(language1)
-  console.log(language2)
-  cards.forEach(card => card.addEventListener('click', playATurn));
-};
-deck = startGame(); // sort this button out
-
-function reply_click(clicked_id) {
-  return(clicked_id);
-}
 
 function tester() {
   console.log("Test successful")
+}
+
+function removeClass(selector, myClass) {
+  elements = document.querySelectorAll(selector);
+  for (var i=0; i<elements.length; i++) {
+    elements[i].classList.remove(myClass);
+  }
+}
+
+function startButton(){
+  goAhead = true;
+  language1 = document.getElementsByName("Language1")[0].value;
+  language2 = document.getElementsByName("Language2")[0].value;
+  cards.forEach(card => card.addEventListener('click', playATurn));
+  deck = startGame(); // sort this button out
+  dealCards();
+  document.getElementById("clickMe").value="Restart";
+  if (restart){
+    // document.getElementById("score").innerHTML = "";    
+    // element.classList.remove("flip");
+    // removeClass('.cardfront', 'revealed');
+    // removeClass('.cardfront', 'flip');
+    location.reload();  // reload to cope with the class remove not working
+  }
+  restart = true;
+
+};
+
+function reply_click(clicked_id) {
+  return(clicked_id);
 }
 
 function flipBack(){
@@ -41,10 +59,9 @@ function flipBack(){
   }
 }
 
-
 function startGame() {
   document.getElementById("score").innerHTML = "Score " + score ;
-    
+  
   let cardsDealt = shuffle(cardArray).slice(0,10);
   let layOut = [];
   let twentyRandom = shuffle(oneToTwenty)
@@ -57,7 +74,6 @@ function startGame() {
   
   for (let i = 0; i <10; i++) {
     layOut.splice([twentyRandom[i]],0, { "display" : cardsDealt[i][language2], "match": cardsDealt[i][language1]  });
-  console.log("later ", language1)
   }
   return layOut;
 };
@@ -74,7 +90,7 @@ function reply_click(clicked_id) {
 }
 
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  let currentIndex = array.length, temporaryValue, randomIndex;
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
@@ -97,7 +113,6 @@ function playATurn() {
 }
 }
 
-dealCards();
 function firstCard() {
   noteFirstCard.classList.toggle('flip');
   card1OfPair = justClickedCard
@@ -108,10 +123,13 @@ function secondCard() {
   card2OfPair = justClickedCard
   noteSecondCard.classList.toggle('flip');
   if (deck[card1OfPair].display === deck[card2OfPair].match) {
-    tester()
-    console.log(noteSecondCard)
     revealedCards.push(Number(card1OfPair));
     revealedCards.push(Number(card2OfPair));
+    if (revealedCards.length > 19) {
+      winner();
+    } else {
+      ding.play();  
+    }
     noteFirstCard.classList.remove('cardfront');
     noteFirstCard.querySelector('div').classList.add('revealed')
     noteSecondCard.querySelector('div').classList.add('revealed')
@@ -123,5 +141,9 @@ function secondCard() {
     let pauseID = setTimeout(flipBack, pause);
   }
   firstOfPair = true;
-
+  
+}function winner() {
+  youWin.play();  
+  document.getElementById("score").innerHTML = "You Won! Your score is " + score ;    
+  goAhead = false;
 }
